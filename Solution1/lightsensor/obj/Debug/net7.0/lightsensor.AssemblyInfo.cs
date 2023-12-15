@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("LED1")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("lightsensor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("LED1")]
-[assembly: System.Reflection.AssemblyTitleAttribute("LED1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4594df157c77bd6b55f0717c8ccf3c19b5a65c4")]
+[assembly: System.Reflection.AssemblyProductAttribute("lightsensor")]
+[assembly: System.Reflection.AssemblyTitleAttribute("lightsensor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Создано классом WriteCodeFragment MSBuild.
