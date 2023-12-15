@@ -15,3 +15,4 @@ C:\Users\User\Documents\GitHub\RaspberryPi3b\Solution1\LED1\obj\Debug\net6.0\ref
 C:\Users\User\Documents\GitHub\RaspberryPi3b\Solution1\LED1\obj\Debug\net6.0\LED1.pdb
 C:\Users\User\Documents\GitHub\RaspberryPi3b\Solution1\LED1\obj\Debug\net6.0\LED1.genruntimeconfig.cache
 C:\Users\User\Documents\GitHub\RaspberryPi3b\Solution1\LED1\obj\Debug\net6.0\ref\LED1.dll
+C:\Users\User\Documents\GitHub\RaspberryPi3b\Solution1\LED1\obj\Debug\net6.0\LED1.sourcelink.json

@@ -9,7 +9,7 @@ var ledOffTime = 1000;
 using GpioController controller = new GpioController();
 controller.OpenPin(ledPin, PinMode.Output);
 
-Console.CancelKeyPress += (s, e) => {controller.Dispose();};
+Console.CancelKeyPress += (s, e) => { controller.Write(ledPin, PinValue.Low); controller.Dispose();};
 
 while (true)
 {

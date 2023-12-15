@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LED1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1280876a05c0c72d3c8b2f55eca590ad0f179d90")]
 [assembly: System.Reflection.AssemblyProductAttribute("LED1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LED1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
