@@ -10,10 +10,11 @@ using GpioController controller = new GpioController();
 controller.OpenPin(pinAO, PinMode.Input);
 controller.OpenPin(pinDO, PinMode.Input);
 
-Console.CancelKeyPress += (s, e) => {controller.Dispose(); };
+controller.RegisterCallbackForPinValueChangedEvent(pinDO, PinEventTypes.Rising | PinEventTypes.Falling, LightSensorTriggered);
 
-while (true)
+Console.ReadLine();
+
+static void LightSensorTriggered(object sender, PinValueChangedEventArgs args)
 {
-    Console.WriteLine(controller.Read(pinAO));
-    Thread.Sleep(2000);
+    Console.WriteLine(args.ChangeType);
 }
