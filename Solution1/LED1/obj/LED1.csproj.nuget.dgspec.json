@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Documents\\GitHub\\RaspberryPi3b\\Solution1\\LED1\\LED1.csproj": {}
+    "D:\\Projects\\Антон\\RaspberryPi3b\\Solution1\\LED1\\LED1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Documents\\GitHub\\RaspberryPi3b\\Solution1\\LED1\\LED1.csproj": {
+    "D:\\Projects\\Антон\\RaspberryPi3b\\Solution1\\LED1\\LED1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\RaspberryPi3b\\Solution1\\LED1\\LED1.csproj",
+        "projectUniqueName": "D:\\Projects\\Антон\\RaspberryPi3b\\Solution1\\LED1\\LED1.csproj",
         "projectName": "LED1",
-        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\RaspberryPi3b\\Solution1\\LED1\\LED1.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\RaspberryPi3b\\Solution1\\LED1\\obj\\",
+        "projectPath": "D:\\Projects\\Антон\\RaspberryPi3b\\Solution1\\LED1\\LED1.csproj",
+        "packagesPath": "C:\\Users\\Антон Денисович\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Антон\\RaspberryPi3b\\Solution1\\LED1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Антон Денисович\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +27,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
