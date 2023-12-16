@@ -5,7 +5,9 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LED1", "LED1\LED1.csproj", "{338FBD4A-3484-4741-ABAF-2E7A932D3084}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lightsensor", "lightsensor\lightsensor.csproj", "{744E2F8F-C966-4F1B-829E-5B8E638D1CD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lightsensor", "lightsensor\lightsensor.csproj", "{744E2F8F-C966-4F1B-829E-5B8E638D1CD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonUtils", "CommonUtils\CommonUtils.csproj", "{EB3804A3-26D1-4741-BED3-5EFFD72D6D52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{744E2F8F-C966-4F1B-829E-5B8E638D1CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{744E2F8F-C966-4F1B-829E-5B8E638D1CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{744E2F8F-C966-4F1B-829E-5B8E638D1CD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB3804A3-26D1-4741-BED3-5EFFD72D6D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB3804A3-26D1-4741-BED3-5EFFD72D6D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB3804A3-26D1-4741-BED3-5EFFD72D6D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB3804A3-26D1-4741-BED3-5EFFD72D6D52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
