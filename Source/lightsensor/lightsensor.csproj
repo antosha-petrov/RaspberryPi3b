@@ -11,4 +11,17 @@
     <PackageReference Include="System.Device.Gpio" Version="3.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="autocopy1.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="pscp.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="Call autocopy1.bat" />
+  </Target>
+
 </Project>
