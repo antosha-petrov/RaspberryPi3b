@@ -15,4 +15,17 @@
     <ProjectReference Include="..\CommonUtils\CommonUtils.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="autocopy.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="pscp.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="Call autocopy.bat" />
+  </Target>
+
 </Project>
