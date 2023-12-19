@@ -12,6 +12,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lightsensor", "lightsensor\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonUtils", "CommonUtils\CommonUtils.csproj", "{EB3804A3-26D1-4741-BED3-5EFFD72D6D52}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lighthouse", "lighthouse\lighthouse.csproj", "{934678CC-586A-4656-A93E-FB41AC762EF3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EB3804A3-26D1-4741-BED3-5EFFD72D6D52} = {EB3804A3-26D1-4741-BED3-5EFFD72D6D52}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +35,10 @@ Global
 		{EB3804A3-26D1-4741-BED3-5EFFD72D6D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB3804A3-26D1-4741-BED3-5EFFD72D6D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB3804A3-26D1-4741-BED3-5EFFD72D6D52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{934678CC-586A-4656-A93E-FB41AC762EF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{934678CC-586A-4656-A93E-FB41AC762EF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{934678CC-586A-4656-A93E-FB41AC762EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{934678CC-586A-4656-A93E-FB41AC762EF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
