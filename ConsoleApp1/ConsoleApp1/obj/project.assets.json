@@ -1,0 +1,534 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "nanoFramework.CoreLibrary/1.15.5": {
+        "type": "package",
+        "compile": {
+          "lib/mscorlib.dll": {}
+        },
+        "runtime": {
+          "lib/mscorlib.dll": {}
+        }
+      },
+      "nanoFramework.Iot.Device.Ads1115/1.2.462": {
+        "type": "package",
+        "dependencies": {
+          "UnitsNet.nanoFramework.ElectricPotential": "5.42.0",
+          "UnitsNet.nanoFramework.Length": "5.42.0",
+          "nanoFramework.CoreLibrary": "1.15.5",
+          "nanoFramework.Runtime.Events": "1.11.15",
+          "nanoFramework.System.Buffers.Binary.BinaryPrimitives": "1.2.418",
+          "nanoFramework.System.Device.Gpio": "1.1.38",
+          "nanoFramework.System.Device.I2c": "1.1.16",
+          "nanoFramework.System.Diagnostics.Stopwatch": "1.2.418",
+          "nanoFramework.System.Math": "1.5.43"
+        },
+        "compile": {
+          "lib/Iot.Device.Ads1115.dll": {}
+        },
+        "runtime": {
+          "lib/Iot.Device.Ads1115.dll": {}
+        }
+      },
+      "nanoFramework.Runtime.Events/1.11.15": {
+        "type": "package",
+        "dependencies": {
+          "nanoFramework.CoreLibrary": "1.15.5"
+        },
+        "compile": {
+          "lib/nanoFramework.Runtime.Events.dll": {}
+        },
+        "runtime": {
+          "lib/nanoFramework.Runtime.Events.dll": {}
+        }
+      },
+      "nanoFramework.Runtime.Native/1.6.12": {
+        "type": "package",
+        "dependencies": {
+          "nanoFramework.CoreLibrary": "1.15.5"
+        },
+        "compile": {
+          "lib/nanoFramework.Runtime.Native.dll": {}
+        },
+        "runtime": {
+          "lib/nanoFramework.Runtime.Native.dll": {}
+        }
+      },
+      "nanoFramework.System.Buffers.Binary.BinaryPrimitives/1.2.418": {
+        "type": "package",
+        "dependencies": {
+          "nanoFramework.CoreLibrary": "1.15.5"
+        },
+        "compile": {
+          "lib/System.Buffers.Binary.BinaryPrimitives.dll": {}
+        },
+        "runtime": {
+          "lib/System.Buffers.Binary.BinaryPrimitives.dll": {}
+        }
+      },
+      "nanoFramework.System.Device.Gpio/1.1.38": {
+        "type": "package",
+        "dependencies": {
+          "nanoFramework.CoreLibrary": "1.15.5",
+          "nanoFramework.Runtime.Events": "1.11.15"
+        },
+        "compile": {
+          "lib/System.Device.Gpio.dll": {}
+        },
+        "runtime": {
+          "lib/System.Device.Gpio.dll": {}
+        }
+      },
+      "nanoFramework.System.Device.I2c/1.1.16": {
+        "type": "package",
+        "dependencies": {
+          "nanoFramework.CoreLibrary": "1.15.5"
+        },
+        "compile": {
+          "lib/System.Device.I2c.dll": {}
+        },
+        "runtime": {
+          "lib/System.Device.I2c.dll": {}
+        }
+      },
+      "nanoFramework.System.Diagnostics.Stopwatch/1.2.418": {
+        "type": "package",
+        "dependencies": {
+          "nanoFramework.CoreLibrary": "1.15.5",
+          "nanoFramework.Runtime.Native": "1.6.12"
+        },
+        "compile": {
+          "lib/System.Diagnostics.Stopwatch.dll": {}
+        },
+        "runtime": {
+          "lib/System.Diagnostics.Stopwatch.dll": {}
+        }
+      },
+      "nanoFramework.System.Math/1.5.43": {
+        "type": "package",
+        "dependencies": {
+          "nanoFramework.CoreLibrary": "1.15.5"
+        },
+        "compile": {
+          "lib/System.Math.dll": {}
+        },
+        "runtime": {
+          "lib/System.Math.dll": {}
+        }
+      },
+      "UnitsNet.nanoFramework.ElectricPotential/5.42.0": {
+        "type": "package",
+        "dependencies": {
+          "nanoFramework.CoreLibrary": "1.15.5"
+        },
+        "compile": {
+          "lib/UnitsNet.ElectricPotential.dll": {}
+        },
+        "runtime": {
+          "lib/UnitsNet.ElectricPotential.dll": {}
+        }
+      },
+      "UnitsNet.nanoFramework.Length/5.42.0": {
+        "type": "package",
+        "dependencies": {
+          "nanoFramework.CoreLibrary": "1.15.5"
+        },
+        "compile": {
+          "lib/UnitsNet.Length.dll": {}
+        },
+        "runtime": {
+          "lib/UnitsNet.Length.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "nanoFramework.CoreLibrary/1.15.5": {
+      "sha512": "u2+GvAp1uxLrGdILACAZy+EVKOs28EQ52j8Lz7599egXZ3GBGejjnR2ofhjMQwzrJLlgtyrsx8nSLngDfJNsAg==",
+      "type": "package",
+      "path": "nanoframework.corelibrary/1.15.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "docs/README.md",
+        "images/nf-logo.png",
+        "lib/mscorlib.dll",
+        "lib/mscorlib.pdbx",
+        "lib/mscorlib.pe",
+        "lib/mscorlib.xml",
+        "nanoframework.corelibrary.1.15.5.nupkg.sha512",
+        "nanoframework.corelibrary.nuspec",
+        "readme.txt"
+      ]
+    },
+    "nanoFramework.Iot.Device.Ads1115/1.2.462": {
+      "sha512": "ZQKar89oQqgj0lE7cicLdjYm8QkxVWTMdz4Qk9WmbTStHNCCOjX421vvixaABiIbI/xmfZeJ2GE2KlDarX9WjA==",
+      "type": "package",
+      "path": "nanoframework.iot.device.ads1115/1.2.462",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "docs/README.md",
+        "images/nf-logo.png",
+        "lib/Iot.Device.Ads1115.dll",
+        "lib/Iot.Device.Ads1115.pdbx",
+        "lib/Iot.Device.Ads1115.pe",
+        "lib/Iot.Device.Ads1115.xml",
+        "nanoframework.iot.device.ads1115.1.2.462.nupkg.sha512",
+        "nanoframework.iot.device.ads1115.nuspec"
+      ]
+    },
+    "nanoFramework.Runtime.Events/1.11.15": {
+      "sha512": "3uDNSTfiaewDAyi6fOMWYru0JCn/gr8DEv+Ro/V12SzojU9Dyxl5nSVOBtBXts7vErfIthB6SPiK180AMnrI8A==",
+      "type": "package",
+      "path": "nanoframework.runtime.events/1.11.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "docs/README.md",
+        "images/nf-logo.png",
+        "lib/nanoFramework.Runtime.Events.dll",
+        "lib/nanoFramework.Runtime.Events.pdbx",
+        "lib/nanoFramework.Runtime.Events.pe",
+        "lib/nanoFramework.Runtime.Events.xml",
+        "nanoframework.runtime.events.1.11.15.nupkg.sha512",
+        "nanoframework.runtime.events.nuspec",
+        "readme.txt"
+      ]
+    },
+    "nanoFramework.Runtime.Native/1.6.12": {
+      "sha512": "RlJ882CK7D2HkkGHDw1a2xgiEM+1+Nd6iTA+OmzF5QIxbv0SX9qBesueIWsc6RsiQGqBEeBXh4zZ2+TBGL62VQ==",
+      "type": "package",
+      "path": "nanoframework.runtime.native/1.6.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "docs/README.md",
+        "images/nf-logo.png",
+        "lib/nanoFramework.Runtime.Native.dll",
+        "lib/nanoFramework.Runtime.Native.pdbx",
+        "lib/nanoFramework.Runtime.Native.pe",
+        "lib/nanoFramework.Runtime.Native.xml",
+        "nanoframework.runtime.native.1.6.12.nupkg.sha512",
+        "nanoframework.runtime.native.nuspec",
+        "readme.txt"
+      ]
+    },
+    "nanoFramework.System.Buffers.Binary.BinaryPrimitives/1.2.418": {
+      "sha512": "JAi+u3N/MGXoyEvZN4WGABYlF4s8JNML/gjPNvHC6csvpsPMC4YHh/+Jc/k/UpOnTkXKKg5VfOJA6ptX6IlGzw==",
+      "type": "package",
+      "path": "nanoframework.system.buffers.binary.binaryprimitives/1.2.418",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "docs/README.md",
+        "images/nf-logo.png",
+        "lib/System.Buffers.Binary.BinaryPrimitives.dll",
+        "lib/System.Buffers.Binary.BinaryPrimitives.pdbx",
+        "lib/System.Buffers.Binary.BinaryPrimitives.pe",
+        "lib/System.Buffers.Binary.BinaryPrimitives.xml",
+        "nanoframework.system.buffers.binary.binaryprimitives.1.2.418.nupkg.sha512",
+        "nanoframework.system.buffers.binary.binaryprimitives.nuspec"
+      ]
+    },
+    "nanoFramework.System.Device.Gpio/1.1.38": {
+      "sha512": "t2em7yn9sZpWWj52Xh4f4JjzUQX8/UB7C+XMnMiSGileGhRg86IwszA5/0bGUgc/dKC/AYRSqraPiEB0Q6jhBA==",
+      "type": "package",
+      "path": "nanoframework.system.device.gpio/1.1.38",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "docs/README.md",
+        "images/nf-logo.png",
+        "lib/System.Device.Gpio.dll",
+        "lib/System.Device.Gpio.pdbx",
+        "lib/System.Device.Gpio.pe",
+        "lib/System.Device.Gpio.xml",
+        "nanoframework.system.device.gpio.1.1.38.nupkg.sha512",
+        "nanoframework.system.device.gpio.nuspec",
+        "readme.txt"
+      ]
+    },
+    "nanoFramework.System.Device.I2c/1.1.16": {
+      "sha512": "33YPnlZVjFwx0mOhdKTOggx+TvbjTD3WZ6rkSB33ytF9fHoqfvS1AYr4+ScUHW4z2yE7vxVWBol5mI7iEg4Aiw==",
+      "type": "package",
+      "path": "nanoframework.system.device.i2c/1.1.16",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "docs/README.md",
+        "images/nf-logo.png",
+        "lib/System.Device.I2c.dll",
+        "lib/System.Device.I2c.pdbx",
+        "lib/System.Device.I2c.pe",
+        "lib/System.Device.I2c.xml",
+        "nanoframework.system.device.i2c.1.1.16.nupkg.sha512",
+        "nanoframework.system.device.i2c.nuspec",
+        "readme.txt"
+      ]
+    },
+    "nanoFramework.System.Diagnostics.Stopwatch/1.2.418": {
+      "sha512": "/DJV6Z1gF290fic5jujbLwzPlPnRiFVlDYO74l6tBcQrL43oX5VIVa09JLn/sBaXJjYL0rNVPYjFl+pO+5vWWQ==",
+      "type": "package",
+      "path": "nanoframework.system.diagnostics.stopwatch/1.2.418",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "docs/README.md",
+        "images/nf-logo.png",
+        "lib/System.Diagnostics.Stopwatch.dll",
+        "lib/System.Diagnostics.Stopwatch.pdbx",
+        "lib/System.Diagnostics.Stopwatch.pe",
+        "lib/System.Diagnostics.Stopwatch.xml",
+        "nanoframework.system.diagnostics.stopwatch.1.2.418.nupkg.sha512",
+        "nanoframework.system.diagnostics.stopwatch.nuspec"
+      ]
+    },
+    "nanoFramework.System.Math/1.5.43": {
+      "sha512": "JEOEGHoIpknJFwPjjz77sT5mej2PiT7JTv59jabzFf+d8XYy8Z4SH+NdX00Xc/yDS8LIPuWb7+C245XGUUx99A==",
+      "type": "package",
+      "path": "nanoframework.system.math/1.5.43",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "docs/README.md",
+        "images/nf-logo.png",
+        "lib/System.Math.dll",
+        "lib/System.Math.pdbx",
+        "lib/System.Math.pe",
+        "lib/System.Math.xml",
+        "nanoframework.system.math.1.5.43.nupkg.sha512",
+        "nanoframework.system.math.nuspec",
+        "readme.txt"
+      ]
+    },
+    "UnitsNet.nanoFramework.ElectricPotential/5.42.0": {
+      "sha512": "8DYEyqBLljNqYEQ2HEOqk5kIbS7yHF+rw+mYHxgX3H4HVNHHXTUvy6NAAwV+lAhi1s/VjRGNoi4LRUKRe+oMpA==",
+      "type": "package",
+      "path": "unitsnet.nanoframework.electricpotential/5.42.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/UnitsNet.ElectricPotential.dll",
+        "lib/UnitsNet.ElectricPotential.pdb",
+        "lib/UnitsNet.ElectricPotential.pdbx",
+        "lib/UnitsNet.ElectricPotential.pe",
+        "lib/UnitsNet.ElectricPotential.xml",
+        "unitsnet.nanoframework.electricpotential.5.42.0.nupkg.sha512",
+        "unitsnet.nanoframework.electricpotential.nuspec"
+      ]
+    },
+    "UnitsNet.nanoFramework.Length/5.42.0": {
+      "sha512": "11ImUerEq/aAngtBGfkz1bo9zEyai8hv0Wxc7stpPQk+JIg0pYB+09Ln/KCBWBMlgInF6+Mhxa1hImu1gAftSw==",
+      "type": "package",
+      "path": "unitsnet.nanoframework.length/5.42.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/UnitsNet.Length.dll",
+        "lib/UnitsNet.Length.pdb",
+        "lib/UnitsNet.Length.pdbx",
+        "lib/UnitsNet.Length.pe",
+        "lib/UnitsNet.Length.xml",
+        "unitsnet.nanoframework.length.5.42.0.nupkg.sha512",
+        "unitsnet.nanoframework.length.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "nanoFramework.Iot.Device.Ads1115 >= 1.2.462"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\RaspberryPi3b\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectName": "ConsoleApp1",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\RaspberryPi3b\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Documents\\GitHub\\RaspberryPi3b\\ConsoleApp1\\ConsoleApp1\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "dependencies": {
+          "nanoFramework.Iot.Device.Ads1115": {
+            "target": "Package",
+            "version": "[1.2.462, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+      }
+    }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"nanoFramework.CoreLibrary 1.15.5\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "nanoFramework.CoreLibrary",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"nanoFramework.Iot.Device.Ads1115 1.2.462\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "nanoFramework.Iot.Device.Ads1115",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"nanoFramework.Runtime.Events 1.11.15\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "nanoFramework.Runtime.Events",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"nanoFramework.Runtime.Native 1.6.12\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "nanoFramework.Runtime.Native",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"nanoFramework.System.Buffers.Binary.BinaryPrimitives 1.2.418\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "nanoFramework.System.Buffers.Binary.BinaryPrimitives",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"nanoFramework.System.Device.Gpio 1.1.38\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "nanoFramework.System.Device.Gpio",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"nanoFramework.System.Device.I2c 1.1.16\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "nanoFramework.System.Device.I2c",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"nanoFramework.System.Diagnostics.Stopwatch 1.2.418\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "nanoFramework.System.Diagnostics.Stopwatch",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"nanoFramework.System.Math 1.5.43\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "nanoFramework.System.Math",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"UnitsNet.nanoFramework.ElectricPotential 5.42.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "UnitsNet.nanoFramework.ElectricPotential",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"UnitsNet.nanoFramework.Length 5.42.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "UnitsNet.nanoFramework.Length",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
+}
