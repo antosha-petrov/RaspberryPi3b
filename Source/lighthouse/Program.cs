@@ -45,14 +45,6 @@ static async Task BlinkSensorAsync(GpioController controller, CancellationToken 
                     controller.Write(ledPin, PinValue.Low);
                     Console.WriteLine("lighting off! Success!");
                 }
-                
-                Console.WriteLine("for more enter a. Press any key to skip");
-
-                if (Console.ReadLine() == "a")
-                {
-                    Console.WriteLine("change value");
-                    Console.WriteLine(args.ChangeType);
-                }
             }
         }
         catch (OperationCanceledException)
