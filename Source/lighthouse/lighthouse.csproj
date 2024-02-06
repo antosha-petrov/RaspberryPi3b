@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="nanoFramework.Iot.Device.Ads1115" Version="1.2.474" />
     <PackageReference Include="System.Device.Gpio" Version="3.1.0" />
   </ItemGroup>
 

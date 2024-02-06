@@ -1,6 +1,22 @@
-﻿using CommonUtils;
-using Microsoft.VisualBasic;
+﻿/*
+https://github.com/dotnet/iot/blob/main/src/devices/Ads1115/README.md
+https://learn.microsoft.com/ru-ru/dotnet/api/iot.device.ads1115.ads1115?view=iot-dotnet-latest
+*/
+
+using CommonUtils;
 using System.Device.Gpio;
+using System.Device.I2c;
+using Iot.Device.Ads1115;
+
+I2cConnectionSettings settings = new I2cConnectionSettings(1, (int)I2cAddress.GND);
+I2cDevice device = I2cDevice.Create(settings);
+
+using (Ads1115 adc = new Ads1115(device, InputMultiplexer.AIN0, MeasuringRange.FS6144))
+{
+    short raw = adc.ReadRaw();
+    var voltage = adc.RawToVoltage(raw);
+}
+
 
 using var lifetimeManager = new ConsoleAppLifetimeManager();
 using var cts = new CancellationTokenSource();
