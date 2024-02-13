@@ -2,18 +2,24 @@
 https://github.com/dotnet/iot/blob/main/src/devices/Ads1115/README.md
 https://learn.microsoft.com/ru-ru/dotnet/api/iot.device.ads1115.ads1115?view=iot-dotnet-latest
 */
-
+// set I2C bus ID: 1
+// ADS1115 Addr Pin connect to GND
 using CommonUtils;
+using Iot.Device.Ads1115;
 using System.Device.Gpio;
 using System.Device.I2c;
-using Iot.Device.Ads1115;
 
 I2cConnectionSettings settings = new I2cConnectionSettings(1, (int)I2cAddress.GND);
 I2cDevice device = I2cDevice.Create(settings);
 
+// pass in I2cDevice
+// measure the voltage AIN0
+// set the maximum range to 6.144V
 using (Ads1115 adc = new Ads1115(device, InputMultiplexer.AIN0, MeasuringRange.FS6144))
 {
+    // read raw data form the sensor
     short raw = adc.ReadRaw();
+    // raw data convert to voltage
     var voltage = adc.RawToVoltage(raw);
 }
 
