@@ -39,7 +39,6 @@ static async Task BlinkSensorAsync(GpioController controller, Ads1115 ads, Cance
     
     ElectricPotential delta = ads.RawToVoltage(sensitive);
     ElectricPotential previos = new();
-    Console.WriteLine(delta);
 
     controller.Write(ledPin, PinValue.Low);
 
@@ -87,17 +86,3 @@ static async Task BlinkSensorAsync(GpioController controller, Ads1115 ads, Cance
     }
 }
 
-
-/*
-    if (changeType == PinEventTypes.Rising)
-    {
-        controller.Write(ledPin, PinValue.High);
-        Console.WriteLine("lighting on! Success!");
-    }
-    else
-    {
-        controller.Write(ledPin, PinValue.Low);
-        Console.WriteLine("lighting off! Success!");
-    }
-    Console.WriteLine($"Voltage: {voltage.Value} {voltage.Unit}");
- */
