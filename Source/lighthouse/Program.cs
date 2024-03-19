@@ -4,6 +4,7 @@ using lighthouse;
 using System.Device.Gpio;
 using System.Device.I2c;
 using System.Timers;
+using UnitsNet;
 
 Console.Clear();
 
@@ -28,35 +29,21 @@ static async Task BlinkSensorAsync(GpioController controller, Ads1115 ads, Cance
     var pinAO = 17;
     var pinDO = 27;
     const int ledPin = 24;
-    bool canContiune = true;
-    int sleepingTime = 1250;
-
-
-    Console.WriteLine("Введите режим работы dayli/short или интервал реагирования в миллесекундах // по умолчанию short");
-    string enter = Console.ReadLine();
-    if (enter == "dayli")
-    {
-        sleepingTime = 600000;
-    }
-    else if (enter == "short")
-    {
-        sleepingTime = 2000;
-    }
-    else
-    {
-        sleepingTime = Convert.ToInt32(enter);
-    }
-
-    System.Timers.Timer timer = new System.Timers.Timer(sleepingTime);
-    timer.Elapsed += TimerElapsed;
+    Console.WriteLine("Введите чувствительность датчика:");
+    Console.WriteLine("1000 = 0.1875 Volt");
+    short sensitive = short.Parse(Console.ReadLine()!);
 
     controller.OpenPin(pinAO, PinMode.Input);
     controller.OpenPin(pinDO, PinMode.Input);
     controller.OpenPin(ledPin, PinMode.Output);
+    
+    ElectricPotential delta = ads.RawToVoltage(sensitive);
+    ElectricPotential previos = new();
+    Console.WriteLine(delta);
 
     controller.Write(ledPin, PinValue.Low);
 
-    var reader = new LightSensorReader(controller, pinDO);
+    var reader = new LightSensorReader(controller, pinAO);
 
     
 
@@ -64,40 +51,53 @@ static async Task BlinkSensorAsync(GpioController controller, Ads1115 ads, Cance
     {
         try
         {
-            if (canContiune)
+            var changeType = await reader.WaitForValueChanging(cancellationToken);
+
+            short raw = ads.ReadRaw();
+            var voltage = ads.RawToVoltage(raw);
+            
+            if (voltage > previos)
             {
-                var changeType = await reader.WaitForValueChanging(cancellationToken);
-
-                short raw = ads.ReadRaw();
-                var voltage = ads.RawToVoltage(raw);
-
-                if (changeType == PinEventTypes.Rising)
-                {
-                    controller.Write(ledPin, PinValue.High);
-                    Console.WriteLine("lighting on! Success!");
-                    canContiune = false;
-                }
-                else
+                if (voltage - previos > delta)
                 {
                     controller.Write(ledPin, PinValue.Low);
                     Console.WriteLine("lighting off! Success!");
-                    canContiune = false;
+                    Console.WriteLine($"Voltage: {voltage.Value} {voltage.Unit}");
+                    previos = voltage;
+
                 }
+            }
+            else if (previos > voltage)
+            {
+                if (previos - voltage > delta)
+                {
+                    controller.Write(ledPin, PinValue.High);
+                    Console.WriteLine("lighting on! Success!");
+                    Console.WriteLine($"Voltage: {voltage.Value} {voltage.Unit}");
+                    previos = voltage;
 
-                Console.WriteLine($"Voltage: {voltage.Value} {voltage.Unit}");
-
-                timer.Start();
-            }  
+                }
+            }
+            
         }
         catch (OperationCanceledException)
         {
             controller.Write(ledPin, PinValue.Low);
         }
     }
-
-    void TimerElapsed(object? sender, ElapsedEventArgs e)
-    {
-        canContiune = true;
-    }
 }
 
+
+/*
+    if (changeType == PinEventTypes.Rising)
+    {
+        controller.Write(ledPin, PinValue.High);
+        Console.WriteLine("lighting on! Success!");
+    }
+    else
+    {
+        controller.Write(ledPin, PinValue.Low);
+        Console.WriteLine("lighting off! Success!");
+    }
+    Console.WriteLine($"Voltage: {voltage.Value} {voltage.Unit}");
+ */
