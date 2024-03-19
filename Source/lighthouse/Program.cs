@@ -29,9 +29,19 @@ static async Task BlinkSensorAsync(GpioController controller, Ads1115 ads, Cance
     var pinAO = 17;
     var pinDO = 27;
     const int ledPin = 24;
+    short sensitive;
     Console.WriteLine("Введите чувствительность датчика:");
     Console.WriteLine("1000 = 0.1875 Volt");
-    short sensitive = short.Parse(Console.ReadLine()!);
+
+    try
+    {
+        sensitive = short.Parse(Console.ReadLine()!);
+    }
+    catch
+    {
+        sensitive = 2000;
+        Console.WriteLine("Чуствительности установлено значение по умолчанию (2000)");
+    }
 
     controller.OpenPin(pinAO, PinMode.Input);
     controller.OpenPin(pinDO, PinMode.Input);
