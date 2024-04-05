@@ -6,8 +6,6 @@ using System.Device.I2c;
 using System.Timers;
 using UnitsNet;
 
-Console.Clear();
-
 var settings = new I2cConnectionSettings(1, (int)I2cAddress.GND);
 
 using var device = I2cDevice.Create(settings);
