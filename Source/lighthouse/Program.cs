@@ -28,16 +28,25 @@ static async Task BlinkSensorAsync(GpioController controller, Ads1115 ads, Cance
     var pinAO = 17;
     var pinDO = 27;
     const int ledPin = 24;
-    var changeCount = 0;
+    double waitTime = 300;
 
     controller.OpenPin(pinAO, PinMode.Input);
     controller.OpenPin(pinDO, PinMode.Input);
     controller.OpenPin(ledPin, PinMode.Output);
 
-    controller.Write(ledPin, PinValue.Low);
-
+    CancellationTokenSource cancellationTokenSource = new();
+    ResultReader resultReader = new();
     var reader = new LightSensorReader(controller, pinDO);
-    controller.Write(ledPin, PinValue.High);
+
+    try
+    {
+        await Console.Out.WriteLineAsync("Введите минимальное время между срабатываниями, для защиты от састых срабатываний(milliseconds):");
+        waitTime = Convert.ToDouble(Console.ReadLine());
+    }
+    catch 
+    {
+        await Console.Out.WriteLineAsync("установденно значение по умолчанию(300 milliseconds)");
+    }
 
     while (!cancellationToken.IsCancellationRequested)
     {
@@ -45,26 +54,11 @@ static async Task BlinkSensorAsync(GpioController controller, Ads1115 ads, Cance
         { 
             var changeType = await reader.WaitForValueChanging(cancellationToken);
 
-            short raw = ads.ReadRaw();
-            var voltage = ads.RawToVoltage(raw);
-            
-            if(changeCount < 3)
-            {
-                if (controller.Read(ledPin) == PinValue.High)
-                {
-                    controller.Write(ledPin, PinValue.Low);
-                    Console.WriteLine("lighting off! Success!");
-                    Console.WriteLine($"Voltage: {voltage.Value} {voltage.Unit}");
-                    changeCount++;
-                }
-                else
-                {
-                    controller.Write(ledPin, PinValue.High);
-                    Console.WriteLine("lighting on! Success!");
-                    Console.WriteLine($"Voltage: {voltage.Value} {voltage.Unit}");
-                    changeCount++;
-                }
-            }
+            cancellationTokenSource.Cancel();
+
+            cancellationTokenSource = new CancellationTokenSource();
+            await ResultReader.ShakeProtection(controller, ads, changeType, waitTime, ledPin, cancellationTokenSource.Token);
+
         }
         catch (OperationCanceledException)
         {
