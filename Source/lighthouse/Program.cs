@@ -3,9 +3,6 @@ using Iot.Device.Ads1115;
 using lighthouse;
 using System.Device.Gpio;
 using System.Device.I2c;
-using System.Runtime.InteropServices;
-using System.Timers;
-using UnitsNet;
 
 var settings = new I2cConnectionSettings(1, (int)I2cAddress.GND);
 
@@ -28,7 +25,7 @@ static async Task BlinkSensorAsync(GpioController controller, Ads1115 ads, Cance
     var pinAO = 17;
     var pinDO = 27;
     const int ledPin = 24;
-    double waitTime = 300;
+    double waitTime = 5000;
 
     controller.OpenPin(pinAO, PinMode.Input);
     controller.OpenPin(pinDO, PinMode.Input);
@@ -40,12 +37,12 @@ static async Task BlinkSensorAsync(GpioController controller, Ads1115 ads, Cance
 
     try
     {
-        await Console.Out.WriteLineAsync("Введите минимальное время между срабатываниями, для защиты от састых срабатываний(milliseconds):");
+        await Console.Out.WriteLineAsync("Введите минимальное время между срабатываниями, для защиты от частых срабатываний(milliseconds):");
         waitTime = Convert.ToDouble(Console.ReadLine());
     }
     catch 
     {
-        await Console.Out.WriteLineAsync("установденно значение по умолчанию(300 milliseconds)");
+        await Console.Out.WriteLineAsync("установденно значение по умолчанию(200 milliseconds)");
     }
 
     while (!cancellationToken.IsCancellationRequested)
@@ -55,7 +52,6 @@ static async Task BlinkSensorAsync(GpioController controller, Ads1115 ads, Cance
             var changeType = await reader.WaitForValueChanging(cancellationToken);
 
             cancellationTokenSource.Cancel();
-
             cancellationTokenSource = new CancellationTokenSource();
             await ResultReader.ShakeProtection(controller, ads, changeType, waitTime, ledPin, cancellationTokenSource.Token);
 
