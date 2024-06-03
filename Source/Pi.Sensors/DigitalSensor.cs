@@ -19,6 +19,8 @@ namespace Pi.Sensors
             this.digitalReader = digitalReader ?? throw new ArgumentNullException(nameof(digitalReader));
         }
 
+        public PinValue PinValue { get; set; }
+
         public async Task<PinValue> ReadValueAsync(CancellationToken cancellationToken)
         {
             var eventType = await digitalReader.ReadValueAsync(cancellationToken).ConfigureAwait(false);
@@ -26,9 +28,14 @@ namespace Pi.Sensors
             switch (eventType)
             {
                 case PinEventTypes.Rising:
-                    return PinValue.High;
+                    PinValue = PinValue.Low;
+                    return PinValue;
                 case PinEventTypes.Falling:
-                    return PinValue.Low;
+                    PinValue = PinValue.High;
+                    return PinValue;
+                default:
+                    PinValue = PinValue.Low;
+                    return PinValue;
             }
         }
     }
