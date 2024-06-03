@@ -1,1 +1,1 @@
-echo y | .\pscp -sftp -r -pw 38Parrots# ./* pi@raspberrypianton:Solution1/lighthouse
+echo y | .\pscp -sftp -r -pw 38Parrots# ./* pi@192.168.61.19:Solution1/lighthouse

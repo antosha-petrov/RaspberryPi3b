@@ -1,23 +1,23 @@
 ﻿using System.Device.Gpio;
+using System.Diagnostics.CodeAnalysis;
 
-namespace lighthouse
+namespace Pi.Sensors
 {
-    /// <summary>
-    /// Читает что-нибудь.
-    /// </summary>
-    internal class LightSensorReader
+    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented", Justification = "Reviewed.")]
+    [SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Justification = "Instantiated by DI-container.")]
+    internal class DigitalReader : IDigitalReader
     {
         private readonly GpioController gpioController;
         private TaskCompletionSource<PinEventTypes>? tcs;
         private CancellationToken cancellationToken;
 
-        public LightSensorReader(GpioController gpioController, int pinAO)
+        public DigitalReader(GpioController gpioController, int pinDO)
         {
             this.gpioController = gpioController;
-            this.gpioController.RegisterCallbackForPinValueChangedEvent(pinAO, PinEventTypes.Rising | PinEventTypes.Falling, OnPinValueChanged);
+            this.gpioController.RegisterCallbackForPinValueChangedEvent(pinDO, PinEventTypes.Rising | PinEventTypes.Falling, OnPinValueChanged);
         }
 
-        public Task<PinEventTypes> WaitForValueChanging(CancellationToken cancellationToken)
+        public Task<PinEventTypes> ReadValueAsync(CancellationToken cancellationToken)
         {
             tcs = new TaskCompletionSource<PinEventTypes>();
             this.cancellationToken = cancellationToken;

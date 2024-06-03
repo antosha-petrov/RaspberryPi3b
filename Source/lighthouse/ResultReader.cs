@@ -1,18 +1,34 @@
-﻿using Iot.Device.Ads1115;
-using System.Device.Gpio;
-
+﻿using System.Device.Gpio;
+using System.Diagnostics.CodeAnalysis;
+using Iot.Device.Ads1115;
 
 namespace lighthouse
 {
-    internal class ResultReader
+    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented", Justification = "Reviewed.")]
+    [SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Justification = "Instantiated by DI-container.")]
+    internal class ResultReader : IDisposable
     {
-        public static async Task ShakeProtection(GpioController controller, Ads1115 ads, PinEventTypes pinEventTypes, double waitTime ,  int ledPin, CancellationToken cancellationToken)
+        private CancellationTokenSource? cancellationTokenSource;
+        private bool disposed;
+
+        public void ReadDelayed(GpioController controller, Ads1115 ads, PinEventTypes pinEventTypes, double waitTime, int ledPin)
         {
+            Cancel();
+            
+            _ = ReadDelayedAsync(controller, ads, pinEventTypes, waitTime, ledPin);
+        }
+
+        public async Task ReadDelayedAsync(GpioController controller, Ads1115 ads, PinEventTypes pinEventTypes, double waitTime, int ledPin)
+        {
+            InvalidateCancellationTokenSource();
+
+            cancellationTokenSource = new CancellationTokenSource();
+
             try
             {
-                await Task.Delay(TimeSpan.FromMilliseconds(waitTime), cancellationToken);
+                await Task.Delay(TimeSpan.FromMilliseconds(waitTime), cancellationTokenSource.Token);
 
-                short raw = ads.ReadRaw();
+                var raw = ads.ReadRaw();
                 var voltage = ads.RawToVoltage(raw);
                 if (pinEventTypes == PinEventTypes.Falling)
                 {
@@ -30,6 +46,28 @@ namespace lighthouse
             catch(OperationCanceledException) 
             {
                 return;
+            }
+        }
+
+        public void Cancel() => cancellationTokenSource?.Cancel();
+
+        public void Dispose()
+        {
+            if (disposed)
+            {
+                return;
+            }
+
+            InvalidateCancellationTokenSource();
+            disposed = true;
+        }
+
+        private void InvalidateCancellationTokenSource()
+        {
+            if (cancellationTokenSource != null)
+            {
+                cancellationTokenSource.Cancel();
+                cancellationTokenSource.Dispose();
             }
         }
     }
