@@ -1,6 +1,4 @@
-﻿using System.Device.Gpio;
-using System.Diagnostics.CodeAnalysis;
-using Iot.Device.Ads1115;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace lighthouse
 {
