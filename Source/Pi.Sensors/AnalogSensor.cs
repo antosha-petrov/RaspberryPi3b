@@ -8,18 +8,13 @@ namespace Pi.Sensors
     [SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Justification = "Instantiated by DI-container.")]
     internal class AnalogSensor : IAnalogSensor
     {
-        private readonly IAnalogReader analogReader;
-
-        public AnalogSensor(IAnalogReader analogReader)
-        {
-            this.analogReader = analogReader ?? throw new ArgumentNullException(nameof(analogReader));
-        }
-
         public ElectricPotential ElectricPotential { get; set; }
 
-        public async Task<ElectricPotential> ReadDelayedAsync(Ads1115 ads115)
+        public async Task<ElectricPotential> ReadDelayAsync(Ads1115 ads115)
         {
-            ElectricPotential = await analogReader.ReadDelayAsync(ads115).ConfigureAwait(false);
+            var raw = await Task.Run(() => ads115.ReadRaw()).ConfigureAwait(false);
+            var voltage = ads115.RawToVoltage(raw);
+            ElectricPotential = voltage;
             return ElectricPotential;
         }
     }

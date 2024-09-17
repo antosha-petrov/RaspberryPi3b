@@ -7,18 +7,21 @@ namespace Pi.Sensors
     [SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Justification = "Instantiated by DI-container.")]
     internal class DigitalSensor : IDigitalSensor
     {
-        private readonly IDigitalReader digitalReader;
+        private readonly GpioController gpioController;
+        private TaskCompletionSource<PinEventTypes>? tcs;
+        private CancellationToken cancellationToken;
 
-        public DigitalSensor(IDigitalReader digitalReader)
+        public DigitalSensor(GpioController gpioController, int pinDO)
         {
-            this.digitalReader = digitalReader ?? throw new ArgumentNullException(nameof(digitalReader));
+            this.gpioController = gpioController;
+            this.gpioController.RegisterCallbackForPinValueChangedEvent(pinDO, PinEventTypes.Rising | PinEventTypes.Falling, OnPinValueChanged);
         }
 
         public PinValue PinValue { get; set; }
 
         public async Task<PinValue> ReadValueAsync(CancellationToken cancellationToken)
         {
-            var eventType = await digitalReader.ReadValueAsync(cancellationToken).ConfigureAwait(false);
+            var eventType = await GetEventType(cancellationToken).ConfigureAwait(false);
 
             switch (eventType)
             {
@@ -32,6 +35,24 @@ namespace Pi.Sensors
                     PinValue = PinValue.Low;
                     return PinValue;
             }
+        }
+
+        private Task<PinEventTypes> GetEventType(CancellationToken cancellationToken)
+        {
+            tcs = new TaskCompletionSource<PinEventTypes>();
+            this.cancellationToken = cancellationToken;
+            this.cancellationToken.Register(OnCancelled);
+            return tcs.Task;
+        }
+
+        private void OnPinValueChanged(object sender, PinValueChangedEventArgs args)
+        {
+            tcs?.TrySetResult(args.ChangeType);
+        }
+
+        private void OnCancelled()
+        {
+            tcs?.TrySetCanceled();
         }
     }
 }

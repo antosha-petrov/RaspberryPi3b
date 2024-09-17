@@ -22,6 +22,6 @@ namespace Pi.Sensors
         /// <returns>
         /// <see cref="Task"/> представляет асинхронную операцию.
         /// </returns>
-        Task<ElectricPotential> ReadDelayedAsync(Ads1115 ads);
+        Task<ElectricPotential> ReadDelayAsync(Ads1115 ads);
     }
 }

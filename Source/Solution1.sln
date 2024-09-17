@@ -5,12 +5,12 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonUtils", "CommonUtils\CommonUtils.csproj", "{EB3804A3-26D1-4741-BED3-5EFFD72D6D52}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lighthouse", "lighthouse\lighthouse.csproj", "{934678CC-586A-4656-A93E-FB41AC762EF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lighthouse", "lighthouse\Lighthouse.csproj", "{934678CC-586A-4656-A93E-FB41AC762EF3}"
 	ProjectSection(ProjectDependencies) = postProject
 		{EB3804A3-26D1-4741-BED3-5EFFD72D6D52} = {EB3804A3-26D1-4741-BED3-5EFFD72D6D52}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pi.Sensors", "Pi.Sensors\Pi.Sensors.csproj", "{9205D0CC-8F90-47D0-98FA-9F29E23FF057}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pi.Sensors", "Pi.Sensors\Pi.Sensors.csproj", "{9205D0CC-8F90-47D0-98FA-9F29E23FF057}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

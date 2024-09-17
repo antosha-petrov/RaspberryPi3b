@@ -1,6 +1,6 @@
 ﻿using System.Device.Gpio;
 
-namespace lighthouse
+namespace Lighthouse
 {
     /// <summary>
     /// Читает что-нибудь.
@@ -11,12 +11,22 @@ namespace lighthouse
         private TaskCompletionSource<PinEventTypes>? tcs;
         private CancellationToken cancellationToken;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LightSensorReader"/> class.
+        /// </summary>
+        /// <param name="gpioController"> gpio-контролер для управления портами.</param>
+        /// <param name="pinAO">номер пина gpio с анлоговым входом.</param>
         public LightSensorReader(GpioController gpioController, int pinAO)
         {
             this.gpioController = gpioController;
             this.gpioController.RegisterCallbackForPinValueChangedEvent(pinAO, PinEventTypes.Rising | PinEventTypes.Falling, OnPinValueChanged);
         }
 
+        /// <summary>
+        /// Метод ожидания смены значения.
+        /// </summary>
+        /// <param name="cancellationToken">токен для отмены операции.</param>
+        /// <returns>A <see cref="Task{TResult}"/> representing the result of the asynchronous operation.</returns>
         public Task<PinEventTypes> WaitForValueChanging(CancellationToken cancellationToken)
         {
             tcs = new TaskCompletionSource<PinEventTypes>();

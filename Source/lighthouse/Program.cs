@@ -1,9 +1,8 @@
-﻿using CommonUtils;
-using Iot.Device.Ads1115;
-using lighthouse;
-using System.Device.Gpio;
+﻿using System.Device.Gpio;
 using System.Device.I2c;
-using System.Net.Http.Headers;
+using CommonUtils;
+using Iot.Device.Ads1115;
+using Lighthouse;
 
 var settings = new I2cConnectionSettings(1, (int)I2cAddress.GND);
 
@@ -40,46 +39,43 @@ static async Task BlinkSensorAsync(GpioController controller, Ads1115 ads, Cance
         Console.WriteLine("Введите минимальное время между срабатываниями, для защиты от частых срабатываний(milliseconds):");
         waitTime = Convert.ToDouble(Console.ReadLine());
     }
-    catch 
+    catch
     {
-        await Console.Out.WriteLineAsync("установденно значение по умолчанию(2000 milliseconds)");
+        Console.WriteLine("установденно значение по умолчанию(2000 milliseconds)");
     }
 
     using var resultReader = new ResultReader();
     CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
     CancellationToken token = cancellationTokenSource.Token;
 
-    var reader = new LightSensorReader(controller, pinDO);
     Reader resultreader = new();
 
     while (!cancellationToken.IsCancellationRequested)
     {
         try
         {
-            var changeType = await reader.WaitForValueChanging(cancellationToken);
+            var changeType = await reader.WaitForValueChanging(cancellationToken).ConfigureAwait(false);
 
             resultReader.ReadDelayed(controller, ads, changeType, waitTime, ledPin);
-            
+
             count++;
 
-            if(count == 2)
+            if (count == 2)
             {
                 cancellationTokenSource.Cancel();
                 CancellationToken token1 = cancellationTokenSource.Token;
-                await resultreader.ReadAsync(controller, ads, changeType, ledPin, token1);
+                await resultreader.ReadAsync(controller, ads, changeType, ledPin, token1).ConfigureAwait(false);
             }
-            else if(count == 1)
+            else if (count == 1)
             {
-                await resultreader.ReadAsync(controller, ads, changeType, ledPin, token);
+                await resultreader.ReadAsync(controller, ads, changeType, ledPin, token).ConfigureAwait(false);
             }
             else
             {
                 cancellationTokenSource.Cancel();
                 CancellationToken token1 = cancellationTokenSource.Token;
-                await resultreader.ReadAsync(controller, ads, changeType, ledPin, token1);
+                await resultreader.ReadAsync(controller, ads, changeType, ledPin, token1).ConfigureAwait(false);
             }
-
-            
         }
         catch (OperationCanceledException)
         {
@@ -87,4 +83,3 @@ static async Task BlinkSensorAsync(GpioController controller, Ads1115 ads, Cance
         }
     }
 }
-

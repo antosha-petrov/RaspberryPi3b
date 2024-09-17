@@ -1,12 +1,7 @@
-﻿using Iot.Device.Ads1115;
-using System;
-using System.Collections.Generic;
-using System.Device.Gpio;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Device.Gpio;
+using Iot.Device.Ads1115;
 
-namespace lighthouse
+namespace Lighthouse
 {
     internal class Reader
     {
@@ -14,13 +9,13 @@ namespace lighthouse
         {
             try
             {
-                await Task.Delay(TimeSpan.FromMilliseconds(350), cancellationToken);
+                await Task.Delay(TimeSpan.FromMilliseconds(350), cancellationToken)
 
                 short raw = ads.ReadRaw();
                 var voltage = ads.RawToVoltage(raw);
 
                 if (changeType == PinEventTypes.Falling)
-                {  
+                {
                     controller.Write(ledPin, PinValue.High);
                     Console.WriteLine("lighting on! Success!");
                     Console.WriteLine($"Voltage: {voltage.Value} {voltage.Unit}");
