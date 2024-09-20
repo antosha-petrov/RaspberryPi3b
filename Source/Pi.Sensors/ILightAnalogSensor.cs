@@ -6,7 +6,7 @@ namespace Pi.Sensors
     /// <summary>
     /// Интерфейс описывающий аналоговый датчик.
     /// </summary>
-    public interface IAnalogSensor
+    public interface ILightAnalogSensor
     {
         /// <summary>
         /// Свойство содержащие значение на датчике.

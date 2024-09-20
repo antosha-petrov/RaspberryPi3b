@@ -5,7 +5,7 @@ namespace Pi.Sensors
     /// <summary>
     /// Интерфейс описываищий цифровой датчик.
     /// </summary>
-    public interface IDigitalSensor
+    public interface ILightDigitalSensor
     {
         /// <summary>
         /// Свойство обозначающие состояние датчика.

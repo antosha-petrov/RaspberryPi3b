@@ -6,7 +6,7 @@ namespace Pi.Sensors
 {
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented", Justification = "Reviewed.")]
     [SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Justification = "Instantiated by DI-container.")]
-    internal class AnalogSensor : IAnalogSensor
+    internal class LightAnalogSensor : ILightAnalogSensor
     {
         public ElectricPotential ElectricPotential { get; set; }
 

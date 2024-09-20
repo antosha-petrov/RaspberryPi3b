@@ -5,13 +5,13 @@ namespace Pi.Sensors
 {
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented", Justification = "Reviewed.")]
     [SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses", Justification = "Instantiated by DI-container.")]
-    internal class DigitalSensor : IDigitalSensor
+    internal class LightDigitalSensor : ILightDigitalSensor
     {
         private readonly GpioController gpioController;
         private TaskCompletionSource<PinEventTypes>? tcs;
         private CancellationToken cancellationToken;
 
-        public DigitalSensor(GpioController gpioController, int pinDO)
+        public LightDigitalSensor(GpioController gpioController, int pinDO)
         {
             this.gpioController = gpioController;
             this.gpioController.RegisterCallbackForPinValueChangedEvent(pinDO, PinEventTypes.Rising | PinEventTypes.Falling, OnPinValueChanged);
