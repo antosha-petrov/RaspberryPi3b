@@ -4,24 +4,24 @@ using UnitsNet;
 namespace Pi.Sensors
 {
     /// <summary>
-    /// Интерфейс описывающий аналоговый датчик.
+    /// Интерфейс описывающй датчик света.
     /// </summary>
     public interface ILightAnalogSensor
     {
         /// <summary>
-        /// Свойство содержащие значение на датчике.
+        /// Свойство, содержащие значение на датчике.
         /// </summary>
         ElectricPotential ElectricPotential { get; set; }
 
         /// <summary>
-        /// Метод для чтения значния на датчике.
+        /// Свойство содержит АЦП.
         /// </summary>
-        /// <param name="ads">
-        /// <see cref="Ads1115"/> для чтения значения на себе же.
-        /// </param>
-        /// <returns>
-        /// <see cref="Task"/> представляет асинхронную операцию.
-        /// </returns>
-        Task<ElectricPotential> ReadDelayAsync(Ads1115 ads);
+        Ads1115 Ads1115 { get; set; }
+
+        /// <summary>
+        /// Метод, получающий напряжение на датчике.
+        /// </summary>
+        /// <returns><see cref="Task{TResult}"/>Возвращает значения напряжения.</returns>
+        Task<ElectricPotential> ReadSensorAsync();
     }
 }
